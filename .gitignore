@@ -1,0 +1,9 @@
+Debug/
+TCBhelper/Debug/
+TCBhelper/x64/
+TCBhelper/MSG00409.bin
+TCBhelper.vcxproj*
+.vs/
+*.iobj
+*.ipdb
+*.pdb
