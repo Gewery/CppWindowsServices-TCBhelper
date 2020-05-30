@@ -52,5 +52,14 @@
 //
 #define SVC_ERROR                        ((DWORD)0xC0020001L)
 
+//
+// MessageId: SVC_NOTICE
+//
+// MessageText:
+//
+// Info from the service: %2
+//
+#define SVC_NOTICE                       ((DWORD)0x40020002L)
+
  // A message file must end with a period on its own line
  // followed by a blank line.
