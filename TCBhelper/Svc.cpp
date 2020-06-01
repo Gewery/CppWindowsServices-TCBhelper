@@ -277,10 +277,6 @@ public:
 
         if (res == WAIT_TIMEOUT) {
             TerminateProcess(pi.hProcess, 0);
-            LogError(TEXT("timeout, killing"));
-        }
-        else {
-            LogError(TEXT("killed in time"));
         }
 
         CloseServiceHandles();
@@ -341,7 +337,7 @@ BOOL SetPrivilege(
         lpszPrivilege,   // privilege to lookup 
         &luid))        // receives LUID of privilege
     {
-        printf("LookupPrivilegeValue error: %u\n", GetLastError());
+        LogError(TEXT("LookupPrivilegeValue error: %u\n", GetLastError()));
         return FALSE;
     }
 
@@ -362,14 +358,14 @@ BOOL SetPrivilege(
         (PTOKEN_PRIVILEGES)NULL,
         (PDWORD)NULL))
     {
-        printf("AdjustTokenPrivileges error: %u\n", GetLastError());
+        LogError(TEXT("AdjustTokenPrivileges error: %u\n", GetLastError()));
         return FALSE;
     }
 
     if (GetLastError() == ERROR_NOT_ALL_ASSIGNED)
 
     {
-        printf("The token does not have the specified privilege. \n");
+        LogError(TEXT("The token does not have the specified privilege. \n"));
         return FALSE;
     }
 
